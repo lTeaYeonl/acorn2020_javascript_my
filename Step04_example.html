@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step04_example.html</title>
+    <link rel="stylesheet" href="C:\acorn2020\visual_work\html\css\text.css">
+</head>
+<body>
+    <h1>array 테스트 중...</h1>
+    <input type="text" id="msg" placeholder="할 일 입력...">
+    <button onclick="Onsave()">저장</button>
+    <button onclick="Onshow()">저장 된 내용 보기</button>
+    <p id="console"></p>
+    <script>
+        // 페이지가 로딩되는 시점에 할 일(문자열)을 저장 할 배열 만들기
+        var msgs = [];
+        // 저장 버튼을 누르면 호출되는 함수
+        function Onsave(){
+            // 한방에 딲!
+            // msgs.push(document.querySelector("#msg").value)
+            // 1. 입력한 문자열을 읽어온다.
+            var line = document.querySelector("#msg").value
+            // 2. 배열에 저장(누적) 시킨다.
+            msgs.push(line)
+            // 입력 후 입력되었다고 alert 출력
+            // alert("저장 되었습니다.");
+            // 입력된 값 초기화 시키기
+            document.querySelector("#msg").value="";
+        }
+        // 저장 된 내용 보기를 누르면 호출되는 함수
+        function Onshow(){
+            // document.querySelector("#console").innerHTML=
+            // "할 일의 갯수는 "+msgs.length+"개 입니다."+"<br>할일 목록 : "+msgs;
+
+            // var todo = "";
+            // for ( var i = 0; i < msgs.length; i++ ) {
+            //     // i 번째 방에 저장된 할일을 읽어온다.
+            //     var line = msgs[i]
+            //     // 테스트로 콘솔창에 출력해 보기
+            //     console.log(line);
+            //     // 값 출력
+            //     todo=[i]+". "+todo+"\n"+line;
+            // }
+            // document.querySelector("#console").innerText=todo;
+
+            var todo = "";
+            for ( var i=0, s=0;  i<msgs.length; i++ ) {
+                s = s+1;
+                todo = todo+[s]+". "+msgs[i]+"\n"
+            }
+            document.querySelector("#console").innerText=todo;
+        }
+    </script>
+</body>
+</html>
