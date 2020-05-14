@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>plain object 테스트 중...</h1>
+    <!-- 입력받을 input list 선언 -->
     <input type="text" id="name" placeholder="이름 입력...">
     <input type="text" id="addr" placeholder="주소 입력...">
     <input type="text" id="age" placeholder="나이 입력...">
@@ -33,10 +34,10 @@
         // 저장된 정보 보기 버튼
         function Onshow(){
             console.log("update!");
-            var result = "이름 : "+obj.name+
-                                "\n 주소 : "+obj.addr+
-                                "\n 나이 : "+obj.age+
-                                "\n 성별 : "+obj.sex
+            var result = "이름 : "+obj.name+"\n"+
+                                "주소 : "+obj.addr+"\n"+
+                                "나이 : "+obj.age+"\n"+
+                                "성별 : "+obj.sex
                                 ;
             document.querySelector("#console").innerText=result;
         }
