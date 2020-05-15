@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step06_EventListener.html</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: #FF8000;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>EventListener 함수 테스트 중...</h1>
+    <div class="box">div</div>
+    <div class="box">div</div>
+    <div class="box">div</div>
+    <div class="box">div</div>
+    <div class="box">div</div>
+    <script>
+        // CLASS 명이 box인 div의 참조값을 배열에 담아오기
+        var divs=document.querySelectorAll(".box");
+        // CLASS 명이 vox인 div의 value 값을 배열에 담아오기
+        var d_value=document.querySelectorAll(".box")[i].value;
+        /*
+            divs 배열안에 있는 div의 참조값을 이용해서
+            이벤트 등록을 해서 동작하게 해보세요.
+        */
+        for (i=0; i < divs.length; i++) {
+            divs[i].addEventListener("click", function(){
+                this.innerText="clicked!";
+                console.error("clicked! 완료! 성공! Sucsex!");
+            })
+        }
+    </script>
+</body>
+</html>
