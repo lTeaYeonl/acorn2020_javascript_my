@@ -43,10 +43,14 @@
             //     todo=[i]+". "+todo+"\n"+line;
             // }
             // document.querySelector("#console").innerText=todo;
-
+            
+            // msgs의 배열 값을 담아줄 변수 선언
             var todo = "";
+            // msgs의 데이터 갯수만큼 반복문 실행
             for ( var i=0, s=0;  i<msgs.length; i++ ) {
+                // 순서를 지정해줄 변수 선언
                 s = s+1;
+                // todo (string type)에 순서+배열의 순차적인 값+개행문자 대입
                 todo = todo+[s]+". "+msgs[i]+"\n"
             }
             document.querySelector("#console").innerText=todo;

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step05_function.html</title>
+</head>
+<body>
+    <h1>function type 테스트 중...</h1>
+    <!-- 함수가 호출되어진 후에는 값이 바뀜, undefined 로라도 -->
+    <button onclick="keepbeer()">맥주 보관하기</button>
+    <script>
+        /*
+            function type
+            - 특정 시점에 일괄 실행할 javascript를 모아 놓는 역활을 한다.
+        */
+        function keepbeer() {
+        console.log("냉장고 문을 연다.");
+        console.warn("맥주를 ㄴ..너..넣는다!!");
+        console.error("냉장고 문을 닫는다.");
+        }
+    </script>
+</body>
+</html>
