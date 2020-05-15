@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step05_function4.html</title>
+</head>
+<body>
+    <h1>function type 테스트 중...</h1>
+    <script>
+        var getInfo=function(){
+            var mem={num:1, name:"김지훈", isMan:true};
+            return mem;
+        };
+
+        var getList=function(){
+            var friends=["김지훈", "김청하", "김찬미"];
+            return friends;
+        };
+
+        var getCar=function(){
+            var car={
+                name : "람보르기니",
+                drive : function(){
+                    console.log("달려요");
+                }
+            };
+            return car;
+        };
+
+        var a=getCar;   // function type
+        var b=getCar();  // object type
+        var c=getCar().name;  // string type
+        var d=getCar().drive;  // function type
+        var e=getCar().drive(); // undefined type
+    </script>
+</body>
+</html>
