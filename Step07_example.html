@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step07_example.html</title>
+    <!-- <link rel="stylesheet" href="C:\acorn2020\visual_work\html\css\text.css"> -->
+</head>
+
+<body>
+    <h1>논리 연산자 테스트 예제</h1>
+    <input type="text" id="height" placeholder="키를 입력하세요...">
+    <input type="text" id="weight" placeholder="몸무게를 입력하세요...">
+    <input type="text" id="age" placeholder="나이를 입력하세요...">
+    <button id="checkBtn">놀이 기구를 탈 수 있는지 확인하기</button>
+    <p id="console"></p>
+    <script>
+        /*
+        키가 너무 작거나 몸무게가 너무 많이 나가면 탈 수 없는 놀이 기구가 있다.
+        키는 150 이상, 몸무게는 100 미만이 기준이다.
+        키와 몸무게를 입력하고 확인하기 버튼을 누르면
+        해당 놀이 기구를 탈 수 있는지 없는지 메세지를
+        p 요소의 innerText에 출력하는 프로그래밍을 해 보세요.
+        */
+        var unknown = "unknown";
+        var u_can_ride = "당신은 탑승이 가능합니다!";
+        var u_cant_ride = "당신은 탑승이 불가능합니다!";
+        // 비교 값 담기
+        // var height_return;
+        // var weight_return;
+
+        // 버튼을 클릭하면 비교 함수 실행
+        document.querySelector("#checkBtn")
+        .addEventListener("click", function() {
+            // 1. 입력한 키와 몸무게를 읽어온다.
+            var input_height = document.querySelector("#height").value;
+            var input_weight = document.querySelector("#weight").value;
+            var input_age = document.querySelector("#age").value;
+            // 2. 키와 몸무게가 기준에 맞으면 "탈 수 있습니다." 를
+            // p 요소의 innerText에 출력하기
+            if ( input_height >= 150 && input_weight < 100 && input_age >= 12){
+                document.querySelector("#console").innerText=u_can_ride;
+            } else {
+                document.querySelector("#console").innerText=u_cant_ride;
+            }
+        });
+
+        //     // 키 비교
+        //     var input_height = document.querySelector("#height").value;
+        //     if (input_height >= 150){
+        //         console.log(input_height);
+        //         height_return=true;
+        //         return true;
+        //     } else if (input_height < 150){
+        //         console.log(input_height);
+        //         height_return=false;
+        //         return false;
+        //     } else {
+        //         console.log(input_height);
+        //         console.error(unknown);
+        //         height_return=false;
+        //         return false;
+        //     }
+        //     // 몸무게 비교
+        //     var input_weight = document.querySelector("#weight").value;
+        //     if (input_weight < 100){
+        //         console.log(input_weight);
+        //         weight_return=true;
+        //         return true;
+        //     } else if (input_weight >= 100){
+        //         console.log(input_weight);
+        //         weight_return=false;
+        //         return false;
+        //     } else {
+        //         console.log(input_weight);
+        //         console.error(unknown);
+        //         weight_return=false;
+        //         return false;
+        //     }
+        //     if (height_return&&weight_return){
+        //         document.querySelector("#console").innerText=u_can_ride;
+        //     }
+        // });
+
+        // document.querySelector("#height")
+        //     .addEventListener("keypress", function (e) {
+        //         if (e.keyCode === 13) {
+        //             if (input_height >= 150) {
+        //                 document.querySelector("#console").innerText = u_can_ride;
+        //             } else if (input_height < 150) {
+        //                 document.querySelector("#console").innerText = "키가 너무 작아 탑승이 불가능 합니다.";
+        //             } else {
+        //                 document.querySelector("#console").innerText = unknown;
+        //             }
+        //         }
+        //     });
+
+        // document.querySelector("#weight")
+        //     .addEventListener("keypress", function (e) {
+        //         if (e.keyCode === 13) {
+        //             if (input_weight < 100) {
+        //                 document.querySelector("#console").innerText = u_can_ride;
+        //             } else if (input_weight >= 100) {
+        //                 document.querySelector("#console").innerText = "몸무게가 너무 많이 나가 탑승이 불가능 합니다.";
+        //             } else {
+        //                 document.querySelector("#console").innerText = unknown;
+        //             }
+        //         }
+        //     });
+    </script>
+</body>
+</html>
