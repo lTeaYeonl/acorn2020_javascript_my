@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step08.example.html</title>
+</head>
+<body>
+    <h1>반복문 활용 예제 테스트중...</h1>
+    <input type="text" id="inputName" placeholder="검색할 이름...">
+    <button id="Onfind">검색</button>
+    <p id="console">출력되어질 친구 정보</p>
+    <br>
+    <input type="text" id="insertName" placeholder="추가할 이름...">
+    <input type="text" id="insertPhone" placeholder="추가할 번호...">
+    <input type="text" id="insertEmail" placeholder="추가할 이메일...">
+    <button id="OnInsert">정보 저장</button>
+    <script>
+        // 친구들의 정보를 담을 배열
+        var friends=[];
+        // 배열에 sample 데이터 담기
+        friends.push({name:"김지훈", phone:"010-7390-4780", email:"kimjihun7356@gmail.com"});
+        friends.push({name:"김찬미", phone:"010-0000-0000", email:"Chanmi@gmail.com"});
+        friends.push({name:"김청하", phone:"010-1111-1111", email:"Chungha@gmail.com"});
+        friends.push({name:"이지은", phone:"010-1234-5678", email:"IU@gmail.com"});
+        friends.push({name:"이채린", phone:"010-9876-5432", email:"CL@gmail.com"});
+
+        // 검색한 데이터와 배열의 오브젝트 값이 같은지 비교(if, for문)
+        // 버튼을 눌렀을 때 실행할 함수 등록
+        document.querySelector("#Onfind")
+        .addEventListener("click", function(){
+            // 1. 입력한 이름을 읽어온다
+            var tmp = document.querySelector("#inputName").value;
+            // 2. 배열(friends)에서 동일한 이름을 가지고 있는 {}을 찾는다.
+            for (var i=0; i<friends.length; i++){
+                // i번째 방의 친구정보를 불러와서
+                var result = friends[i]
+                var no_search = " 으로 검색된 정보는 없습니다.";
+                // 만일 입력한 이름과 친구정보에 있는 이름과 같으면
+                // 해당 정보를 p 요소에 출력하기
+                if (tmp==friends[i].name) {
+                    var result = "이름 : "+friends[i].name+"\n"+
+                                       "폰번호 : "+friends[i].phone+"\n"+
+                                       "메일주소 : "+friends[i].email+"\n";
+                    document.querySelector("#console").innerText=result;
+                    break; // for 문도 탈출이 가능할까?
+                } else {
+                    document.querySelector("#console").innerText=tmp+no_search;
+                }
+            };
+        });
+        
+        // 입력된 값을 배열에 object type으로 저장
+        document.querySelector("#OnInsert")
+        .addEventListener("click", function(){
+            var i_name = document.querySelector("#insertName").value;
+            var i_phone = document.querySelector("#insertPhone").value;
+            var i_email = document.querySelector("#insertEmail").value;
+
+            friends.push({name:i_name, phone:i_phone, email:i_email});
+
+            document.querySelector("#insertName").value="";
+            document.querySelector("#insertPhone").value="";
+            document.querySelector("#insertEmail").value="";
+        });
+    </script>
+</body>
+</html>
