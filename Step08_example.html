@@ -51,14 +51,16 @@
         });
         
         // 입력된 값을 배열에 object type으로 저장
+        // 버튼을 눌렀을 때 실행할 함수 등록
         document.querySelector("#OnInsert")
         .addEventListener("click", function(){
+            // 입력한 데이터를 읽어온다.
             var i_name = document.querySelector("#insertName").value;
             var i_phone = document.querySelector("#insertPhone").value;
             var i_email = document.querySelector("#insertEmail").value;
-
+            // push 메소드를 사용해서 배열에 오브젝트 타입으로 데이터를 넣어준다.
             friends.push({name:i_name, phone:i_phone, email:i_email});
-
+            // input 값 초기화
             document.querySelector("#insertName").value="";
             document.querySelector("#insertPhone").value="";
             document.querySelector("#insertEmail").value="";
