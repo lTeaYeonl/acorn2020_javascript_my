@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step12_example.html</title>
+</head>
+<body>
+    <h1>createElement 테스트 중...</h1>
+    <ul id="friendList">
+
+    </ul>
+    <input type="text" id="Ondata" placeholder="값을 넣어주세용">
+    <button id="Oninput">값 집어넣기</button>
+    <button id="Onreset">새로고침</button>
+    <script>
+        // 친구 이름이 들어있는 배열
+        const names=["김지훈", "김찬미", "이지은", "이채린", "김청하"];
+        /*
+        배열에 들어있는 친구 이름을 이용해서
+        <li>김지훈</li>
+        와 같은 요소를 동적으로 만들어서
+        ul 요소에 append 해 보세요. (페이지 로딩 시점에)
+        */
+        function test(){
+            for (let i=0; i<names.length; i++){
+                let names_arr = document.createElement("li");
+                names_arr.innerText=names[i];
+                document.querySelector("#friendList").append(names_arr);
+            }
+        };
+
+        test();
+
+        // 버튼을 눌렀을때 배열에 값을 집어넣는 함수
+        document.querySelector("#Oninput")
+        .addEventListener("click", function(){
+            let tmp=document.querySelector("#Ondata").value;
+            names.push(tmp);
+            document.querySelector("#Ondata").value="";
+        });
+
+        // 버튼을 눌렀을 때 새로고침 되는 함수
+        document.querySelector("#Onreset")
+        .addEventListener("click", function(){
+            document.getElementById("friendList").innerHTML="";
+            test();
+        });
+
+    </script>
+</body>
+</html>
