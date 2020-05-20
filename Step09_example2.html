@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Step09_example2.html</title>
+    <style>
+        canvas{
+            border:1px solid #FF8000;
+        }
+    </style>
 </head>
 <body>
     <h1>그림판 만들기</h1>
-    <canvas id="myCanvas" width="500" height="500" style="border: 1px solid #FF8000"></canvas>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
     색상 <input type="color" id="selectColor">
     굵기 <input type="range" id="selectRange"
                 min="1" max="20" step="1" value="10">
             <strong id="displayWidth">10</strong>
     <button id="clearBtn">Clear</button>
+    <button id="downBtn">Download</button>
     <script>
          // canvas의 참조값 얻어오기
          var canvas=document.querySelector("#myCanvas");
@@ -83,11 +89,18 @@
             thisWidth=this.value;
         });
 
+        // 버튼을 클릭하면 초기화 하는 함수 등록
         document.querySelector("#clearBtn")
         .addEventListener("click", function(){
             // context를 이용해서 사각형 영역 clear 하기
             // .clearRect(x, y, width, height)
             context.clearRect(0, 0, 500, 500);
+        });
+
+        document.querySelector("#downBtn")
+        .addEventListener("click", function(){
+            var dt = canvas.toDataURL("image/jpeg");
+            this.href = dt;
         })
     </script>
 </body>
