@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step11_ECMA6.html</title>
+</head>
+<body>
+    <h1>ECMAScript6 테스트 중...</h1>
+    <script>
+        // 전역변수 : 함수 외부에서 선언된 변수로, 프로그램 전체에서 접근할 수 있는 변수
+        // 지역변수 : 함수 내부에서 선언된 변수로, 함수가 실행되면 만들어지고, 함수가 종료되면 소멸하는 변수.
+        // 함수 외부에서는 접근 할 수 없음
+        // 변수를 선언 할 떄 let 으로 선언하면 선언된 블럭 내에서만 사용 가능하다.
+        for(var i=0; i<5; i++){
+            console.log(i);
+        } // i 는 for 문 밖에서 사용할 수 없다.
+        if(true){
+            var myName="김지훈";
+        } // myName 은 if 문 밖에서 사용할 수 없다.
+
+        // 상수(수정불가한 변수)도 만들 수 있다.
+        const PI=3.14159;
+        // PI = 1234; // 오류 발생
+
+        // let PI=3.14 // 상수로 선언한 것을 다시 선언할 수 없다.
+    </script>
+</body>
+</html>
