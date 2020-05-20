@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step11_ECMA62.html</title>
+</head>
+<body>
+    <h1>ECMAScript6 테스트 중...</h1>
+    <script>
+        // Car 클래스 정의하기
+        class Car{
+            // 속성 정의하기
+            brand="포르쉐";
+            color="yellow";
+            // 기능 정의하기
+            drive(){
+                console.log(this.brand+"를 타고있는 조형기 나가신다 부릉부릉!!!!!!!!!!!");
+            }
+        }
+        // Car 클래스로 객체를 생성해서 참조값을 car1 이라는 이름의 변수에 담기
+        let car1=new Car();
+        // Car 클래스로 객체를 생성해서 참조값을 car2 이라는 이름의 변수에 담기
+        let car2=new Car();
+
+        let car3={
+            brand:"벤츠",
+            color:"#FF8000",
+            drive:function(){
+                console.log(this.brand+"를 타고있는 조형기가 나가신다 부릉부릉!!!!");
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step10_string_study.html</title>
+</head>
+<body>
+    <h1>string type 테스트 중...</h1>
+    <script>
+        // https://lktprogrammer.tistory.com/124
+        // string type 복습
+
+        // 1. 문자열 객체 생성 및 초기화
+        // - var 참조 변수 = new String(문자열 데이터)
+        // - var 참조 변수 = 문자열 데이터
+        var test1 = new String("test data1"); // 첫 번째 방식
+        var test2 = "test data2"; // 두번째 방식
+
+        document.write(test1);
+        document.write(test2);
+        
+        // 2. 문자열 함수 - charAt()
+        // 문자열에서 인자로 넘긴 index에 해당하는 문자형 데이터를 반환해 주는 함수
+        var test3 = "Hello";
+        var result1 = test3.charAt(1); // 1번째 값을 반환함
+
+        document.write(result1);
+
+        // 3. 문자열 함수 - IndexOf() / lastIndexOf()
+        // - String.indexOf("찾을 문자", index);
+        // - String.lastIndexOf("찾을 문자");
+        // 문자열의 왼쪽부터 시작하여 찾을 문자와 일치하는 최초의 문자의 Index를 반환하는 함수
+        // 두 번째 인자를 지정하여 검색하는 Index도 지정할 수 있음
+        // last는 오른쪽에서부터 찾음
+        // 두 함수 모두 일치하는 문자를 찾지 못하면 -1을 반환함
+        var test4 = "Hello World! LCK Progamer World";
+        var result_indexOf = test4.indexOf("World");
+        var result_lastIndexOf = test4.lastIndexOf("World");
+
+        console.log(result_indexOf);
+        console.log(result_lastIndexOf);
+
+        // 4. 문자열 함수 - replace()
+        // String.replace("찾을 문자", "치환할 문자");
+        // 문자열의 왼쪽에서 부터 찾을 문자를 찾아 최초에 일치하는 문자에 대하여 두번째 인자로 넘긴 치환할 문자로 대체합니다.
+        var test5 = "Hello Pray! LOL Progamer!"
+        var result5 = test5.replace("Hello", "Change!");
+
+        console.log(result5);
+    </script>
+</body>
+</html>
