@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step12_example2.html</title>
+</head>
+<style>
+    li:hover{
+        background-color: #ff8000;
+    }
+</style>
+<body>
+    <h1>createElement 테스트 중...</h1>
+    <input type="text" id="inputMsg" placeholder="할 일 입력...">
+    <button id="addBtn">추가</button>
+    <ul id="toDoList">
+
+    </ul>
+    <script>
+        document.querySelector("#addBtn")
+        .addEventListener("click", function(){
+            // 1. 입력한 할일 값 읽어오기
+            var a = document.querySelector("#inputMsg").value;
+            // 2. li 요소 생성
+            var b = document.createElement("li");
+            // 3. li 요소에 innerText 출력
+            b.innerText=a;
+            // 4. ul에 append
+            document.querySelector("#toDoList").append(b);
+            // 5. text 값 초기화
+            document.querySelector("#inputMsg").value="";
+            // 6. li 요소 클릭시 log 출력
+            b.addEventListener("click", function(){
+                console.log("어딜만져!!!!!!!!!!!");
+                // 7. 선택된 요소 삭제
+                var isDelete=confirm("삭제하시겠습니까?");
+                if(isDelete==true){
+                    return this.remove();
+                } else if(isDelete==false){
+                    return;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
