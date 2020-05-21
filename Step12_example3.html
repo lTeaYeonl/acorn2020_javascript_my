@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step12_example3.html</title>
+</head>
+<body>
+    <h1>createElement 테스트 중...</h1>
+    <input type="text" id="inputNum" placeholder="번호입력...">
+    <input type="text" id="inputName" placeholder="이름입력...">
+    <input type="text" id="inputAddr" placeholder="주소입력...">
+    <button id="Onadd">추가</button>
+    <h1>추가된 회원 목록 입니다.</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>주소</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        function test(){
+            let i_num = document.querySelector("#inputNum").value;
+            let i_name = document.querySelector("#inputName").value;
+            let i_addr = document.querySelector("#inputAddr").value;
+
+            let td1=document.createElement("td");
+            td1.innerText=i_num;
+            let td2=document.createElement("td");
+            td2.innerText=i_name;
+            let td3=document.createElement("td");
+            td3.innerText=i_addr;
+            let tr=document.createElement("tr");
+
+            tr.append(td1);
+            tr.append(td2);
+            tr.append(td3);
+            document.querySelector("tbody").append(tr);
+
+            document.querySelector("#inputNum").value="";
+            document.querySelector("#inputName").value="";
+            document.querySelector("#inputAddr").value="";
+        };
+
+        document.querySelector("#Onadd")
+        .addEventListener("click", function(){
+            test();
+        });
+
+        // input 요소에 keydown 이벤트가 일어나면 호출 되는 함수 생성
+        document.querySelector("#inputAddr")
+        .addEventListener("keydown", function(event){
+            // 만일 event.key 가 "Enter"와 같다면
+            if (event.key == "Enter"){ // 조건부 수행 블럭
+                test();
+            }
+        });
+
+    </script>
+</body>
+</html>
