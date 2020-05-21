@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>복습</h1>
+    <div id="wrapper">
+        <ul id="uid">
+
+        </ul>
+    </div>
+    <div>
+        <ul id="uid2">
+
+        </ul>
+    </div>
+    <script>
+        var a = document.createElement("ul");
+        a.innerText="테스트";
+        document.querySelector("#wrapper").append(a);
+
+        var b = document.createElement("li");
+        b.innerText="테스트@@@";
+        document.querySelector("#uid").append(b);
+
+        
+
+    </script>
+</body>
+</html>

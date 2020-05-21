@@ -24,6 +24,7 @@
         </tbody>
     </table>
     <script>
+        var tr=document.createElement("tr");
         function test(){
             let i_num = document.querySelector("#inputNum").value;
             let i_name = document.querySelector("#inputName").value;
@@ -35,7 +36,6 @@
             td2.innerText=i_name;
             let td3=document.createElement("td");
             td3.innerText=i_addr;
-            let tr=document.createElement("tr");
 
             tr.append(td1);
             tr.append(td2);
@@ -58,6 +58,15 @@
             // 만일 event.key 가 "Enter"와 같다면
             if (event.key == "Enter"){ // 조건부 수행 블럭
                 test();
+            }
+        });
+
+        tr.addEventListener("click", function(){
+            let isDelete=confirm("??? 지워 지우라고!!!!");
+            if (isDelete==true){
+                return this.remove();
+            } else {
+                return;
             }
         });
 
