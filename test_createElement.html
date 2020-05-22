@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test_createElement.html</title>
+</head>
+<body>
+    <h1>jQuery로 createElement 만들기</h1>
+    <button id="makeBtn">p 요소 동적으로 만들기</button>
+    <div id="wrapper">
+
+    </div>
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        $("#makeBtn").click(function(){
+            $("<p>")
+                .text("p 요소 입니다.")
+                .appendTo("#wrapper");
+        });
+    </script>
+</body>
+</html>

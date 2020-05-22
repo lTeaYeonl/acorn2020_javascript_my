@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test_createElement2.html</title>
+</head>
+<body>
+    <h1>jQuery로 createElement 만들기</h1>
+    <div id="wrapper">
+
+    </div>
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        /*
+            <a href="hello.html" class="my-link">이동하기</a>
+            위와 같은 구조의 a 요소를 동적으로 만들기
+        */
+       $("<a>")
+        .text("이동하기")
+        .attr("href", "hello.html")
+        .attr("class", "my-link")
+        .appendTo("#wrapper");
+    </script>
+</body>
+</html>
