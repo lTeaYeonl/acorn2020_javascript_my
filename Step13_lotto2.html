@@ -18,6 +18,7 @@
     <input type="text" id="test4" placeholder="번호를 입력하세요"><br>
     <input type="text" id="test5" placeholder="번호를 입력하세요"><br>
     <input type="text" id="test6" placeholder="번호를 입력하세요">
+    <button id="Ontest">입력한 값으로 추첨하기</button>
     <button id="rulletBtn">추첨하기</button>
     <div id="wrapper">
         <!-- <img src="images/lotto-ball-1.png"> -->
@@ -66,26 +67,38 @@
             }
         });
 
-        // 입력한 값 읽어오기
-        var test01=document.querySelector("#test1").value;
-        var test02=document.querySelector("#test2").value;
-        var test03=document.querySelector("#test3").value;
-        var test04=document.querySelector("#test4").value;
-        var test05=document.querySelector("#test5").value;
-        var test06=document.querySelector("#test6").value;
-        // 입력한 값을 하나로 관리해주는 변수 생성
-        var all_test=test01,test02,test03,test04,test05,test06;
-        // 변수에 입력 값 대입   
-        var tmp=[all_test];
-        // 입력한 값이 45가 넘지 않는지 확인
-        if(all_test <= 45){
-            // 입력한 값과 동일한 볼 이미지를 출력한다.
-            ball.setAttribute("src", "images/lotto-ball-"+test01+".png");  
-        // 입력한 값이 45가 넘는다면 경고창 출력 및 document 값 초기화
-        } else if(all_test > 45 && all_test > 0){
-            alert("입력한 값이 45보다 큽니다! 45보다 작은 값을 입력해 주세요!");
-            document.querySelectorAll("input").innerText="";
-        }
+        document.querySelector("#Ontest")
+        .addEventListener("click", function(){
+            // 입력한 값 읽어오기
+            var test01=document.querySelector("#test1").value;
+            var test02=document.querySelector("#test2").value;
+            var test03=document.querySelector("#test3").value;
+            var test04=document.querySelector("#test4").value;
+            var test05=document.querySelector("#test5").value;
+            var test06=document.querySelector("#test6").value;
+            // 입력한 값을 하나로 관리해주는 변수 생성
+            var all_test=test01,test02,test03,test04,test05,test06;
+            // 변수에 입력 값 대입   
+            var tmp=[all_test];
+            // 입력한 값이 45가 넘지 않는지 확인
+            if(all_test <= 45){
+                // img 요소 생성하여 ball 변수에 대입
+                var ball=document.createElement("img");
+                // 입력한 번호에 맞는 볼 이미지 출력
+                for (var i=0; i<all_test.length; i++){
+                    var ball_arr="";
+                    var inner = ball.setAttribute("src", "images/lotto-ball-"+all_test[i]+".png");
+                    ball_arr=ball_arr+inner;
+                }
+                // 출력된 이미지를 div에 자식요소로 넣어줌
+                document.querySelector("#wrapper").append(ball_arr);
+                // 입력한 값이 45가 넘는다면 경고창 출력 및 document 값 초기화
+            } else if(all_test > 45 && all_test > 0){
+                alert("입력한 값이 45보다 큽니다! 45보다 작은 값을 입력해 주세요!");
+                document.querySelectorAll("input").innerText="";
+            }
+        });
+            
     </script>
 </body>
 </html>
