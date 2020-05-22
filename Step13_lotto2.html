@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step13_lotto2.html</title>
+    <style>
+        img{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>lotto 추첨기 만들기</h1>
+    <input type="text" id="test1" placeholder="번호를 입력하세요"><br>
+    <input type="text" id="test2" placeholder="번호를 입력하세요"><br>
+    <input type="text" id="test3" placeholder="번호를 입력하세요"><br>
+    <input type="text" id="test4" placeholder="번호를 입력하세요"><br>
+    <input type="text" id="test5" placeholder="번호를 입력하세요"><br>
+    <input type="text" id="test6" placeholder="번호를 입력하세요">
+    <button id="rulletBtn">추첨하기</button>
+    <div id="wrapper">
+        <!-- <img src="images/lotto-ball-1.png"> -->
+    </div>
+    <script>
+        // 1. 버튼을 눌렀을때 함수 실행
+        // 2. 로또 번호 6개를 랜덤하게 얻어내서 nums 배열에 저장
+        // 3. 중복된 값이 없으면 배열에 로또번호를 넣어준다
+        // 4. nums에 6개의 숫자가 모두 들어갔다면 반복문 탈출
+        // 5. 로또번호 출력
+        // 내가 입력한 값들로 이미지 생성하기
+
+        // 추첨하기 버튼을 눌렀을 때 호출되는 함수
+        document.querySelector("#rulletBtn")
+        .addEventListener("click", function(){
+            // div 값 초기화
+            document.querySelector("#wrapper").innerText="";
+            // 로또번호가 담겨질 array type 변수 생성
+            var nums=[];
+            // 중복값 체크를 위해 for문은 사용하지 않았음
+            while(true){
+                // 랜덤 로또번호를 생성해주는 변수
+                let lottoNum=parseInt(Math.random()*45)+1;
+                // 생성된 랜덤 로또번호와 배열의 값이 일치하지 않는다면 if문 실행
+                if(nums.indexOf(lottoNum)==-1){
+                    // 중복된 번호가 없으므로 배열에 값 추가
+                    nums.push(lottoNum);
+                }
+                // 만약 배열의 값이 6개가 되었다면 반복문 탈출
+                if(nums.length==6){
+                    break;
+                }
+            }
+            // 로또번호 오름차순 정렬
+            nums.sort(function(a, b){
+                return a - b;
+            })
+            // 로또볼 이미지 출력
+            for(let i=0; i<nums.length; i++){
+                // img 요소 생성
+                var ball=document.createElement("img");
+                // 생성된 img 요소에 nums 배열의 값만큼 이미지 파일 삽입
+                ball.setAttribute("src", "images/lotto-ball-"+nums[i]+".png");
+                // id가 wrapper인 요소에 하위요소로 ball 요소를 넣어준다
+                document.querySelector("#wrapper").append(ball);
+            }
+        });
+
+        // 입력한 값 읽어오기
+        var test01=document.querySelector("#test1").value;
+        var test02=document.querySelector("#test2").value;
+        var test03=document.querySelector("#test3").value;
+        var test04=document.querySelector("#test4").value;
+        var test05=document.querySelector("#test5").value;
+        var test06=document.querySelector("#test6").value;
+        // 입력한 값을 하나로 관리해주는 변수 생성
+        var all_test=test01,test02,test03,test04,test05,test06;
+        // 변수에 입력 값 대입   
+        var tmp=[all_test];
+        // 입력한 값이 45가 넘지 않는지 확인
+        if(all_test <= 45){
+            // 입력한 값과 동일한 볼 이미지를 출력한다.
+            ball.setAttribute("src", "images/lotto-ball-"+test01+".png");  
+        // 입력한 값이 45가 넘는다면 경고창 출력 및 document 값 초기화
+        } else if(all_test > 45 && all_test > 0){
+            alert("입력한 값이 45보다 큽니다! 45보다 작은 값을 입력해 주세요!");
+            document.querySelectorAll("input").innerText="";
+        }
+    </script>
+</body>
+</html>
